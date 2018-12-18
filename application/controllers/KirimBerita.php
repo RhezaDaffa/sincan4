@@ -5,7 +5,7 @@ class KirimBerita extends CI_Controller {
 
 	public function index()
 	{	
-		$this->berita['hasil'] = $this->model_show->getBerita('kirim_berita');
+		$this->berita['hasil'] = $this->M_show->getBerita('kirim_berita');
 		$this->load->view('KirimBerita');
 	}
 
@@ -36,7 +36,7 @@ class KirimBerita extends CI_Controller {
 			'lokasi' => $lokasi
 		);
 
-		$this->model_insert->insertData($data,'kirim_berita');
+		$this->M_insert->insertData($data,'kirim_berita');
 		redirect('DaftarLaporan');
 	}
 }

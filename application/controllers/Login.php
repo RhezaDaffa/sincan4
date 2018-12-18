@@ -2,7 +2,7 @@
 class Login extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->model('login_model');
+        $this->load->model('Login_m');
     }
  
     function index(){
@@ -13,7 +13,7 @@ class Login extends CI_Controller{
         $email=htmlspecialchars($this->input->post('email',TRUE),ENT_QUOTES);
         $password=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
  
-        $cek_admin=$this->login_model->auth_admin($email,$password);
+        $cek_admin=$this->Login_m->auth_admin($email,$password);
  
         if($cek_admin->num_rows() > 0)
         { //jika login sebagai dosen
@@ -37,7 +37,7 @@ class Login extends CI_Controller{
         }
         else
         { //jika login sebagai mahasiswa
-	        $cek_masyarakat=$this->login_model->auth_masyarakat($email,$password);
+	        $cek_masyarakat=$this->Login_m->auth_masyarakat($email,$password);
 	        if($cek_masyarakat->num_rows() > 0)
 	        {
                 $data=$cek_masyarakat->row_array();

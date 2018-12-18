@@ -42,7 +42,7 @@ class DaftarMasyarakat extends CI_Controller {
 			'kodepos' => $kodepos
 		);
 
-		$this->model_insert->insertData($data,'masyarakat');
+		$this->M_insert->insertData($data,'masyarakat');
 		redirect('Login');
 		
 	}

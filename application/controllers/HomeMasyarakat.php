@@ -6,8 +6,8 @@ class HomeMasyarakat extends CI_Controller {
 
 	public function index()
 	{
-		$this->berita['hasilbt'] = $this->model_show->getBerita('kirim_berita');
-		$this->berita['hasillu'] = $this->model_show->getBerita('laporan');
+		$this->berita['hasilbt'] = $this->M_show->getBerita('kirim_berita');
+		$this->berita['hasillu'] = $this->M_show->getBerita('laporan');
 		$this->load->view('homeMasyarakat',$this->berita);
 	}
 	
@@ -29,7 +29,7 @@ class HomeMasyarakat extends CI_Controller {
 			'gambar' => $gambar
 		);
 
-		$this->model_insert->insertData($data,'laporan');
+		$this->M_insert->insertData($data,'laporan');
 		redirect('HomeMasyarakat/index');
 		
 	}
